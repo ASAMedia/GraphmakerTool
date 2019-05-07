@@ -1,24 +1,22 @@
 # GraphmakerTool
-The GraphmakerTool is made for creating and manipilating graphs.
+The GraphmakerTool is made for creating and manipulating graphs.
 <div>
-  <img src="/images/mainwindow1.PNG" alt="Screenshot" title="Screenshot-1" width="100%" style="margin:5px"/>
+  <img src="/images/mainwindow1.PNG" alt="Screenshot" title="Screenshot-1" width="50%" style="margin:5px"/>
 </div>
 <br>
-Der Vertretungsplan ist immer (auch offline) verfügbar.
 <hr>
-Funktionen:
+Features:
 <ul>
-  <li>Stundenplan</li>
-  <li>Klassenfotos</li>
-  <li>Termine</li>
-  <li>Vertretungsplan</li>
-  <li>Aktuelle Informationen</li>
-  <li>Informationen zur Schülervertretung</li>
-  <li>Haus- und Speiseraumordnung</li>
-  <li>Weitere Informationen</li>
+  <li>Creating Graph</li>
+  <li>Adding nodes/edges</li>
+  <li>Deleting nodes/edges</li>
+  <li>Move nodes to customize graph</li>
+  <li>Add additional information to nodes</li>
+  <li>Viewmode/Editmode</li>
 </ul>
 <br><hr>
+<h4>Add node</h4>
 <i>
 Copyright (&copy;) 2019 ASAMedia<br>
-Die Genehmigung zur Wiederverwendung, Bearbeitung und Verteilung wird nicht erteilt.<br>
-Bei Fragen wenden Sie sich bitte an den Author.</i>
+Approval for reuse, processing and distribution will not be granted.<br>
+If you have any questions, please contact the author.</i>
