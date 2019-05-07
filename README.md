@@ -30,7 +30,7 @@ Features:
 </ul>
 <br><hr>
 <h3>Delete node</h3>
-<img src="/images/deleteanimation.gif" alt="Screenshot" title="Screenshot-3" width="100%" style="margin:5px"/>
+<img src="/images/deleteanimation.gif" alt="Screenshot" title="Screenshot-3" width="50%" style="margin:5px"/>
 To delete a node right click on it an select delete on the popup menu(View mode needs to be selected).
 <hr>
 
