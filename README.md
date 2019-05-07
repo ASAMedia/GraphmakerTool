@@ -1,7 +1,7 @@
 # GraphmakerTool
 The GraphmakerTool is made for creating and manipilating graphs.
 <div>
-  <img src="/images/mainwindow1.png" alt="Screenshot" title="Screenshot-1" width="100%" style="margin:5px"/>
+  <img src="/images/mainwindow1.PNG" alt="Screenshot" title="Screenshot-1" width="100%" style="margin:5px"/>
 </div>
 <br>
 Der Vertretungsplan ist immer (auch offline) verfügbar.
