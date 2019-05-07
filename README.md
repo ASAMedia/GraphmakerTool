@@ -15,20 +15,25 @@ Features:
   <li>Viewmode/Editmode</li>
 </ul>
 <br><hr>
-<h4>Add node</h4>
+<h3>Add node</h3>
 <div>
   <img src="/images/addwindow.PNG" alt="Screenshot" title="Screenshot-2" width="50%" style="margin:5px"/>
   <p>By clicking the add button on the mainwindow a popup window opens.<br> 
   Through the given input fields a customized node can be added.<p><br>
 </div>
-  <h5>Note:</h5> The following input layout has to be used, else errors could occur!<br>
+  <h4>Note:</h4> The following input layout has to be used, else errors could occur!<br>
   <ul>
   <li>Number: int</li>
   <li>Name: String</li>
   <li>Attributes: String:String,String:String, ...</li>
   <li>Connections: int,int,...</li>
 </ul>
+<br><hr>
+<h3>Delete node</h3>
+<img src="/images/deleteanimation.gif" alt="Screenshot" title="Screenshot-3" width="100%" style="margin:5px"/>
+To delete a node right click on it an select delete on the popup menu(View mode needs to be selected).
 <hr>
+
 <i>
 Copyright (&copy;) 2019 ASAMedia<br>
 Approval for reuse, processing and distribution will not be granted.<br>
