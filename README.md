@@ -34,16 +34,10 @@ Features:
 To delete a node right click on it an select delete on the popup menu(View mode needs to be selected).
 <br><hr>
 <h3>Add/Delete Edge</h3>
-<div>
-<img src="/images/addedgeanimation.gif" alt="Screenshot" title="Screenshot-4" width="40%" style="margin:5px"/>
-<img src="/images/deleteedgeanimation.gif" alt="Screenshot" title="Screenshot-5" width="40%" style="margin:5px"/>
-</div>
-To add a edge switch to edit mode and left click on the two vertices you wish to connect.
-To delete a edge switch to edit mode and right click on the two vertices you wish to connect.
  <table style="width:100%">
   <tr>
-    <th><img src="/images/addedgeanimation.gif" alt="Screenshot" title="Screenshot-4" width="40%" style="margin:5px"/></th>
-    <th><img src="/images/deleteedgeanimation.gif" alt="Screenshot" title="Screenshot-5" width="40%" style="margin:5px"/></th>
+    <th><img src="/images/addedgeanimation.gif" alt="Screenshot" title="Screenshot-4" width="90%" style="margin:5px"/></th>
+    <th><img src="/images/deleteedgeanimation.gif" alt="Screenshot" title="Screenshot-5" width="90%" style="margin:5px"/></th>
   </tr>
   <tr>
     <td>To add a edge switch to edit mode and left click on the two vertices you wish to connect.</td>
