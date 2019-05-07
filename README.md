@@ -18,7 +18,7 @@ Features:
 <h4>Add node</h4>
 <div>
   <img src="/images/addwindow.PNG" alt="Screenshot" title="Screenshot-2" width="50%" style="margin:5px"/>
-  By clicking the add button on the mainwindow a popup window opens.<br> 
+  <div>By clicking the add button on the mainwindow a popup window opens.<br> 
   Through the given input fields a customized node can be added.<br>
   <h5>Note:</h5> The following input layout has to be used, else errors could occur!<br>
   <ul>
@@ -27,6 +27,7 @@ Features:
   <li>Attributes: String:String,String:String, ...</li>
   <li>Connections: int,int,...</li>
 </ul>
+</div>
 </div>
 <hr>
 <i>
