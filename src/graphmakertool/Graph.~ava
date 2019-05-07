@@ -55,7 +55,7 @@ public class Graph {
     Vertice v=new Vertice(number);
     v.setCenterX(40+new Random().nextInt(700));
     v.setCenterY(40+new Random().nextInt(450));
-    v.setRadius(40);
+    v.setRadius(80);
     while (checkVerticeIntersection(v) ||checkVertLineIntersection(v)) { 
       v.setCenterX(40+new Random().nextInt(700));
       v.setCenterY(40+new Random().nextInt(450));

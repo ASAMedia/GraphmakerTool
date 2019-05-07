@@ -39,8 +39,8 @@ public class Graph {
     v.setCenterY(40+new Random().nextInt(450));
     v.setRadius(40);
     while (checkVerticeIntersection(v)||checkVertLineIntersection(v)) { 
-      v.setCenterX(40+new Random().nextInt(700));
-      v.setCenterY(40+new Random().nextInt(450));
+      v.setCenterX(40+new Random().nextInt(800));
+      v.setCenterY(40+new Random().nextInt(650));
     } // end of while
     v.setRadius(20);
     v.setFill(Color.WHITE);
@@ -53,12 +53,12 @@ public class Graph {
   }
   public void addVert(int number,int[] connections){
     Vertice v=new Vertice(number);
-    v.setCenterX(40+new Random().nextInt(700));
-    v.setCenterY(40+new Random().nextInt(450));
-    v.setRadius(40);
+    v.setCenterX(40+new Random().nextInt(800));
+    v.setCenterY(40+new Random().nextInt(650));
+    v.setRadius(80);
     while (checkVerticeIntersection(v) ||checkVertLineIntersection(v)) { 
-      v.setCenterX(40+new Random().nextInt(700));
-      v.setCenterY(40+new Random().nextInt(450));
+      v.setCenterX(40+new Random().nextInt(800));
+      v.setCenterY(40+new Random().nextInt(650));
     } // end of while   
     v.setFill(Color.WHITE);
     v.setStroke(Color.BLACK);
@@ -106,12 +106,12 @@ public class Graph {
   public void addVert(int number, String name){
     
     Vertice v=new Vertice(number,name);
-    v.setCenterX(40+new Random().nextInt(700));
-    v.setCenterY(40+new Random().nextInt(450));
+    v.setCenterX(40+new Random().nextInt(800));
+    v.setCenterY(40+new Random().nextInt(650));
     v.setRadius(40);
     while (checkVerticeIntersection(v)||checkVertLineIntersection(v)) { 
-      v.setCenterX(40+new Random().nextInt(700));
-      v.setCenterY(40+new Random().nextInt(450));
+      v.setCenterX(40+new Random().nextInt(800));
+      v.setCenterY(40+new Random().nextInt(650));
     } // end of while
     v.setRadius(20);
     v.setFill(Color.WHITE);
@@ -124,12 +124,12 @@ public class Graph {
   }
   public void addVert(int number,int[] connections, String name){
     Vertice v=new Vertice(number, name);
-    v.setCenterX(40+new Random().nextInt(700));
-    v.setCenterY(40+new Random().nextInt(450));
+    v.setCenterX(40+new Random().nextInt(800));
+    v.setCenterY(40+new Random().nextInt(650));
     v.setRadius(40);
     while (checkVerticeIntersection(v) ||checkVertLineIntersection(v)) { 
-      v.setCenterX(40+new Random().nextInt(700));
-      v.setCenterY(40+new Random().nextInt(450));
+      v.setCenterX(40+new Random().nextInt(800));
+      v.setCenterY(40+new Random().nextInt(650));
     } // end of while   
     v.setFill(Color.WHITE);
     v.setStroke(Color.BLACK);
@@ -177,12 +177,12 @@ public class Graph {
   public void addVert(int number, String name, String attr){
     
     Vertice v=new Vertice(number,name);
-    v.setCenterX(40+new Random().nextInt(700));
-    v.setCenterY(40+new Random().nextInt(450));
+    v.setCenterX(40+new Random().nextInt(800));
+    v.setCenterY(40+new Random().nextInt(650));
     v.setRadius(40);
     while (checkVerticeIntersection(v)||checkVertLineIntersection(v)) { 
-      v.setCenterX(40+new Random().nextInt(700));
-      v.setCenterY(40+new Random().nextInt(450));
+      v.setCenterX(40+new Random().nextInt(800));
+      v.setCenterY(40+new Random().nextInt(650));
     } // end of while
     v.setRadius(20);
     v.setFill(Color.WHITE);
@@ -198,12 +198,12 @@ public class Graph {
   }
   public void addVert(int number,int[] connections, String name, String attr){
     Vertice v=new Vertice(number, name);
-    v.setCenterX(40+new Random().nextInt(700));
-    v.setCenterY(40+new Random().nextInt(450));
+    v.setCenterX(40+new Random().nextInt(800));
+    v.setCenterY(40+new Random().nextInt(650));
     v.setRadius(40);
     while (checkVerticeIntersection(v) ||checkVertLineIntersection(v)) { 
-      v.setCenterX(40+new Random().nextInt(700));
-      v.setCenterY(40+new Random().nextInt(450));
+      v.setCenterX(40+new Random().nextInt(800));
+      v.setCenterY(40+new Random().nextInt(650));
     } // end of while   
     v.setFill(Color.WHITE);
     v.setStroke(Color.BLACK);

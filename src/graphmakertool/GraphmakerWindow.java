@@ -25,7 +25,6 @@ import javafx.stage.Stage;
 import je.NumberField;
 import java.awt.MouseInfo;
 import javafx.scene.text.Text;
-import java.awt.Panel;
 import javafx.scene.input.MouseButton;
 import javafx.scene.input.*;
 
@@ -43,6 +42,7 @@ public class GraphmakerWindow extends Application {
   private boolean firstclick=true;
   private boolean firstclick_delete=true;
   private Vertice veticefirsttodelete;
+  private Vertice veticeFirsttoAddLine;
   private Button Add = new Button();
   Scene scene;
   Pane root;
@@ -58,33 +58,33 @@ public class GraphmakerWindow extends Application {
   
   public void start(Stage primaryStage) { 
     root = new Pane();
-    scene = new Scene(root, 753, 535);
-    tbViewmode.setLayoutX(694);
+    scene = new Scene(root, 853, 800);
+    tbViewmode.setLayoutX(780);
     tbViewmode.setLayoutY(14);
     tbViewmode.setPrefHeight(25);
     tbViewmode.setPrefWidth(75);
-    tbViewmode.setText("Viewmode");
+    tbViewmode.setText("View");
     tbViewmode.setSelected(true);
     tbViewmode.setOnAction(
     (event) -> {tbViewmode_Action(event);} 
     );
     root.getChildren().add(tbViewmode);
-    tbEditmode.setLayoutX(607);
+    tbEditmode.setLayoutX(690);
     tbEditmode.setLayoutY(14);
     tbEditmode.setPrefHeight(25);
     tbEditmode.setPrefWidth(75);
-    tbEditmode.setText("Editmode");
+    tbEditmode.setText("Edit");
     tbEditmode.setOnAction(
     (event) -> {tbEditmode_Action(event);} 
     );
     root.getChildren().add(tbEditmode);
     // Ende Komponenten
     // Anfang Komponenten
-    LoadDefaultGraph();
+    LoadDefaultGraph2();
     updateScene();  
     
-    Add.setLayoutX(399);
-    Add.setLayoutY(498);
+    Add.setLayoutX(750);
+    Add.setLayoutY(760);
     Add.setPrefHeight(25);
     Add.setPrefWidth(75);
     Add.setOnAction(
@@ -97,6 +97,7 @@ public class GraphmakerWindow extends Application {
     bRefresh.setLayoutY(506);
     bRefresh.setPrefHeight(25);
     bRefresh.setPrefWidth(75);
+    bRefresh.setVisible(false);
     bRefresh.setOnAction(
     (event) -> {bRefresh_Action(event);} 
     );
@@ -145,14 +146,26 @@ public class GraphmakerWindow extends Application {
         Vertice v=(Vertice)e.getTarget();
         if (firstclick) {
           firstclick=(false);
+          veticeFirsttoAddLine=v;
+          v.setFill(Color.CYAN);
           
-          addEdge.startXProperty().bind(v.centerXProperty());
-          addEdge.startYProperty().bind(v.centerYProperty());
         } // end of if
         else {
           firstclick=(true);
+          veticeFirsttoAddLine.setFill(Color.WHITE);
+          addEdge.startXProperty().bind(veticeFirsttoAddLine.centerXProperty());
+          addEdge.startYProperty().bind(veticeFirsttoAddLine.centerYProperty());
           addEdge.endXProperty().bind(v.centerXProperty());
           addEdge.endYProperty().bind(v.centerYProperty());
+          
+          for (Edge ed: G.edges) {
+            Shape intersect1 = Vertice.intersect(veticeFirsttoAddLine, ed);
+            Shape intersect2 = Vertice.intersect(v, ed);
+            if (intersect1.getBoundsInLocal().getWidth() != -1&&intersect2.getBoundsInLocal().getWidth() != -1) {
+              G.edges.remove(ed);
+              break;              
+            }
+          } // end of for
           G.edges.add(addEdge);
           updateScene();
         } // end of if-else
@@ -164,15 +177,18 @@ public class GraphmakerWindow extends Application {
         if (firstclick_delete) {
           firstclick_delete=false;
           veticefirsttodelete=v;
+          veticefirsttodelete.setFill(Color.RED);
         } // end of if
         else {
           firstclick_delete=true;
+          veticefirsttodelete.setFill(Color.WHITE);
           for (Shape static_bloc : G.edges) {
             
             Shape intersect1 = Vertice.intersect(veticefirsttodelete, static_bloc);
             Shape intersect2 = Vertice.intersect(v, static_bloc);
             if (intersect1.getBoundsInLocal().getWidth() != -1&&intersect2.getBoundsInLocal().getWidth() != -1) {
               G.edges.remove(static_bloc);
+              
               updateScene();
               break;
               
@@ -225,11 +241,35 @@ public class GraphmakerWindow extends Application {
     
     
   }
-  void LoadDefaultGraph(){
-    G.addVert(1,new int[]{2,3},"Berlin","Size:3000km,Height:100m,Population:30.000");
-    G.addVert(2,new int[]{1,3}, "Leipzig");
-    G.addVert(3,new int[]{1,2}, "Hamburg");
-    G.addVert(4,new int[]{2});
+  void LoadDefaultGraph1(){
+    G.addVert(1,new int[]{2,21},"Berlin","Size:3000km,Height:100m,Population:30.000");
+    G.addVert(2,new int[]{1,3,4}, "Leipzig");
+    G.addVert(3,new int[]{2,4,6}, "Jena");
+    G.addVert(4,new int[]{3,2,5},"Weimar");
+    G.addVert(5,new int[]{4,12},"Erfurt");
+    G.addVert(6,new int[]{3,12,10,7,8},"Nürnberg");
+    G.addVert(7,new int[]{6,8,9},"München");
+    G.addVert(8,new int[]{6,10,7},"Augsburg");
+    G.addVert(9,new int[]{7,10,11},"Freiburg");
+    G.addVert(10,new int[]{6,8,9,11},"Stuttgart");
+    G.addVert(11,new int[]{10,9,12,13},"Mannheim");
+    G.addVert(12,new int[]{6,11,13,5},"Frankfurt");
+    G.addVert(13,new int[]{11,12,14},"Wiesbaden");
+    G.addVert(14,new int[]{12,13,16,15},"Düsseldorf");
+    G.addVert(15,new int[]{14,16},"Köln");
+    G.addVert(16,new int[]{14,15,17,18},"Essen");
+    G.addVert(17,new int[]{18,16},"Gelsenkirchen");
+    G.addVert(18,new int[]{16,17,19,20},"Dortmund");
+    G.addVert(19,new int[]{18,20,21},"Hannover");
+    G.addVert(20,new int[]{18,19},"Bremen");
+    G.addVert(21,new int[]{19,1},"Braunschweig");
+  }
+  void LoadDefaultGraph2(){
+    G.addVert(1,new int[]{2,5},"Berlin","Size:3000km,Height:100m,Population:30.000");
+    G.addVert(2,new int[]{1,4}, "Leipzig");
+    G.addVert(3,new int[]{}, "Jena");
+    G.addVert(4,new int[]{2,5},"Weimar");
+    G.addVert(5,new int[]{1,4},"Erfurt");
   }
   
   public static void main(String[] args) {
@@ -239,7 +279,7 @@ public class GraphmakerWindow extends Application {
   public void Add_Action(Event evt) {
     
     
-    if(G.verticles.size()<15){
+    if(G.verticles.size()<22){
       String[] values=AddVerticeDialog.display();  
       if(!values[3].equals("")){
         
@@ -274,6 +314,8 @@ public class GraphmakerWindow extends Application {
   
   
   public void tbEditmode_Action(Event evt) {
+    firstclick=true;
+    firstclick_delete=true;
     tbViewmode.setSelected(false);
     editMode=true;
     
