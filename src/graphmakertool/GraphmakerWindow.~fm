@@ -1,9 +1,9 @@
 object GraphmakerWindow: TFXGuiForm
-  Left = 633
-  Top = 286
+  Left = 632
+  Top = 44
   BorderIcons = [biSystemMenu]
   Caption = 'GraphmakerWindow'
-  ClientHeight = 853
+  ClientHeight = 845
   ClientWidth = 800
   Color = clBtnFace
   ParentFont = True
@@ -34,8 +34,8 @@ object GraphmakerWindow: TFXGuiForm
   TextHeight = 13
   object Add: TFXButton
     Tag = 105
-    Left = 399
-    Top = 498
+    Left = 750
+    Top = 760
     Width = 75
     Height = 25
     Hint = 'button1'
@@ -70,8 +70,8 @@ object GraphmakerWindow: TFXGuiForm
   end
   object bRefresh: TFXButton
     Tag = 105
-    Left = 218
-    Top = 501
+    Left = 512
+    Top = 706
     Width = 75
     Height = 25
     Hint = 'button1'
@@ -129,7 +129,7 @@ object GraphmakerWindow: TFXGuiForm
   end
   object tbViewmode: TFXToggleButton
     Tag = 136
-    Left = 694
+    Left = 780
     Top = 14
     Width = 75
     Height = 25
@@ -164,7 +164,7 @@ object GraphmakerWindow: TFXGuiForm
   end
   object tbEditmode: TFXToggleButton
     Tag = 136
-    Left = 607
+    Left = 690
     Top = 14
     Width = 75
     Height = 25

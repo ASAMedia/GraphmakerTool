@@ -125,8 +125,14 @@ public class Graph {
   }
   public void addVert(int number,int[] connections, String name){
     Vertice v=new Vertice(number, name);
+    if(!verticles.isEmpty()){
+      
     v.setCenterX(40+new Random().nextInt(800));
-    v.setCenterY(40+new Random().nextInt(650));
+      }
+    else {
+      v.setCenterX(40+new Random().nextInt(800));
+    } // end of if-else
+    v.setCenterY(40);//+new Random().nextInt(650));
     v.setRadius(40);
     while (checkVerticeIntersection(v) ||checkVertLineIntersection(v)) { 
       v.setCenterX(40+new Random().nextInt(800));
@@ -158,7 +164,7 @@ public class Graph {
       
       for (Vertice ver:verticles ){
         if (checkLineVertIntersection(l,ver,end)) { 
-          this.addVert(number,connections);
+          this.addVert(number,connections,name);
           return;
         } // end of if 
       }
@@ -314,9 +320,10 @@ public class Graph {
     double relaxation=0.0378;
     double accuracy=0.01;
     
-    for (int count=0; count<=1;count++ ) {
+    for (int count=0; count<=100;count++ ) {
       Vector sumForce=new Vector();
       Vector tmpForce=new Vector();
+      double maxForce=0;
       for (Vertice v:verticles) {
         v.layoutVar=new Vector();
       } // end of for
@@ -326,32 +333,49 @@ public class Graph {
             sumForce=computeForce(n,m);
             
             for (Edge e : edges) {
-              Shape intersect1 = Vertice.intersect(n, e);
-              Shape intersect2 = Vertice.intersect(m, e);
-              if (intersect1.getBoundsInLocal().getWidth() != -1 && intersect2.getBoundsInLocal().getWidth() != -1) {
+              Edge ed=new Edge();
+              Vector v1=new Vector(n.getCenterX(),n.getCenterY());
+              Vector v2=new Vector(m.getCenterX(),m.getCenterY());
+              Vector l1=new Vector(e.getStartX(),e.getStartY());
+              Vector l2=new Vector(e.getEndX(),e.getEndY());
+              if ((v1.equals(l1)||v1.equals(l2))&&(v2.equals(l1)||v2.equals(l2))) {
+                if(v1.equals(l1)){
+                  tmpForce = computeForce(n,m,e);
+                  sumForce = sumForce.add(tmpForce);
+                  }
+                if(v2.equals(l1)){
+                  tmpForce = computeForce(n,m,e);
+                  sumForce = sumForce.sub(tmpForce);
+                  }
                 tmpForce = computeForce(n,m,e);
                 sumForce = sumForce.add(tmpForce);
                 break;
-              }
+              } // end of if
               
             }
             n.layoutVar=n.layoutVar.sub(sumForce);
             m.layoutVar=m.layoutVar.add(sumForce);
           } // end of if
         } // end of for
+        
         n.setCenterX(n.getCenterX()+relaxation*n.layoutVar.getX());
-      n.setCenterY(n.getCenterY()+relaxation*n.layoutVar.getY());
+        n.setCenterY(n.getCenterY()+relaxation*n.layoutVar.getY());
+        
       } // end of for
-
+      
     } // end of for
+    centerLayout();
   }
   
   private Vector computeForce(Vertice s, Vertice t){
-    double repulsion=200;
+    double repulsion=2000;
     Vector force=new Vector(t.getCenterX(),t.getCenterY()).sub(new Vector(s.getCenterX(),s.getCenterY()));
     double d=Math.sqrt(Math.pow(force.getX(),2)+Math.pow(force.getY(),2));
+    
     force=(force.Mul(repulsion)).Div(Math.pow(d,3));
     return force;
+   
+
   }
   
   private Vector computeForce(Vertice s, Vertice t,Edge e){
@@ -360,6 +384,47 @@ public class Graph {
     double d=Math.sqrt(Math.pow(force.getX(),2)+Math.pow(force.getY(),2));
     force=(force.Mul(attraction-d)).Div(d);
     return force;
+    
+  }
+  
+  private void centerLayout(){
+    double x = 0;
+    double y = 0;
+    for (Vertice v:verticles) {
+      if(v.getCenterX()>x)
+      x=v.getCenterX();
+        
+      if(v.getCenterY()>y)
+      y=v.getCenterY();
+    } // end of for
+    for (Vertice v:verticles) {   
+      v.setCenterX(v.getCenterX()-x+500);
+      v.setCenterY(v.getCenterY()-y+500);
+    } // end of for
+    
+  }
+  
+  public void orderCircleWise(){
+    int layerCount=5;
+    double layerDistance=100;
+    double nodeDistance=300;
+    double maximumHeight=50;
+    int numberOfNotesPerLayer=verticles.size()/layerCount;
+    if (verticles.size()%layerCount!=0) {
+      numberOfNotesPerLayer+=1;
+    } // end of if
+    double r=numberOfNotesPerLayer*maximumHeight/Math.PI;
+    double phi=2*Math.PI/numberOfNotesPerLayer;
+    int currentNodeNumber=0;
+    for (Vertice v:verticles) {
+      currentNodeNumber+=1;
+      if (layerCount>1 && currentNodeNumber%(numberOfNotesPerLayer+1)==0) {
+        r=r+layerDistance;
+        currentNodeNumber=0;
+      } // end of if
+      v.setCenterX(r*Math.cos((currentNodeNumber-1)*phi)+450);
+      v.setCenterY(r*Math.sin((currentNodeNumber-1)*phi)+450);
+    } // end of for
   }
       // Ende Methoden
 } // end of Graph

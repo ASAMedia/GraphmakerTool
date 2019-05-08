@@ -17,7 +17,7 @@ public class Vertice extends Circle {
   String name="Default";
   int number;
   HashMap<String, String> attributes = new HashMap<String, String>();
-  Point2D layoutVar=new Point2D(0,0);
+  Vector layoutVar=new Vector(0,0);
   // Ende Attribute
   
   public Vertice(int number) {

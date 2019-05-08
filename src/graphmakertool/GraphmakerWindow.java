@@ -27,6 +27,11 @@ import java.awt.MouseInfo;
 import javafx.scene.text.Text;
 import javafx.scene.input.MouseButton;
 import javafx.scene.input.*;
+import graphmakertool.GraphmakerWindow;
+import javafx.animation.Timeline;
+import javafx.animation.KeyFrame;
+import javafx.util.Duration;
+import javafx.animation.Animation;
 
 /**
  *
@@ -49,13 +54,16 @@ public class GraphmakerWindow extends Application {
   private Slider slider1 = new Slider(1, 4, 1);
   Edge addEdge=new Edge();
   private Button bRefresh = new Button();
+  private Button bStopp = new Button();
   private Button bLoadG1 = new Button();
   private Button bLoadG2 = new Button();
+  private Button bLoadG3 = new Button();
   private Pane pane1 = new Pane();
   private Boolean editMode=false;
   private Label lZoom = new Label();
   private ToggleButton tbViewmode = new ToggleButton();
   private ToggleButton tbEditmode = new ToggleButton();
+  Timeline timeline;
   // Ende Attribute
   
   public void start(Stage primaryStage) { 
@@ -81,9 +89,6 @@ public class GraphmakerWindow extends Application {
     );
     root.getChildren().add(tbEditmode);
     
-    LoadDefaultGraph2();
-    updateScene();  
-    
     Add.setLayoutX(750);
     Add.setLayoutY(760);
     Add.setPrefHeight(25);
@@ -97,15 +102,33 @@ public class GraphmakerWindow extends Application {
     bRefresh.setLayoutX(518);
     bRefresh.setLayoutY(706);
     bRefresh.setPrefHeight(25);
-    bRefresh.setPrefWidth(75);
+    bRefresh.setPrefWidth(160);
     bRefresh.setVisible(true);
     bRefresh.setOnAction(
     (event) -> {bRefresh_Action(event);} 
     );
-    bRefresh.setText("refresh");
+    bRefresh.setText("start auto sorting");
     root.getChildren().add(bRefresh);
     
-    bLoadG1.setLayoutX(118);
+    bStopp.setLayoutX(700);
+    bStopp.setLayoutY(706);
+    bStopp.setPrefHeight(25);
+    bStopp.setPrefWidth(160);
+    bStopp.setVisible(true);
+    bStopp.setOnAction(
+    (event) -> {bStopp_Action(event);} 
+    );
+    bStopp.setText("stopp auto sorting");
+    root.getChildren().add(bStopp);
+    
+    timeline = new Timeline(new KeyFrame(
+    Duration.millis(500),
+    ae -> orderGraph()));
+    timeline.setCycleCount(Animation.INDEFINITE);
+    
+                   
+    
+    bLoadG1.setLayoutX(50);
     bLoadG1.setLayoutY(706);
     bLoadG1.setPrefHeight(50);
     bLoadG1.setPrefWidth(120);
@@ -116,7 +139,7 @@ public class GraphmakerWindow extends Application {
     bLoadG1.setText("Load Graph 1");
     root.getChildren().add(bLoadG1);
     
-    bLoadG2.setLayoutX(248);
+    bLoadG2.setLayoutX(180);
     bLoadG2.setLayoutY(706);
     bLoadG2.setPrefHeight(50);
     bLoadG2.setPrefWidth(120);
@@ -126,6 +149,17 @@ public class GraphmakerWindow extends Application {
     );
     bLoadG2.setText("Load Graph 2");
     root.getChildren().add(bLoadG2);
+    
+    bLoadG3.setLayoutX(310);
+    bLoadG3.setLayoutY(706);
+    bLoadG3.setPrefHeight(50);
+    bLoadG3.setPrefWidth(120);
+    bLoadG3.setVisible(true);
+    bLoadG3.setOnAction(
+    (event) -> {bLoadG3_Action(event);} 
+    );
+    bLoadG3.setText("Load Graph 3");
+    root.getChildren().add(bLoadG3);
     
     pane1.setLayoutX(0);
     pane1.setLayoutY(0);
@@ -265,35 +299,48 @@ public class GraphmakerWindow extends Application {
     
     
   }
-  void LoadDefaultGraph2(){
-    G.addVert(1,new int[]{2,21},"Berlin","Size:3000km,Height:100m,Population:30.000");
-    G.addVert(2,new int[]{1,3,4}, "Leipzig");
-    G.addVert(3,new int[]{2,4,6}, "Jena");
-    G.addVert(4,new int[]{3,2,5},"Weimar");
-    G.addVert(5,new int[]{4,12},"Erfurt");
-    G.addVert(6,new int[]{3,12,10,7,8},"Nürnberg");
-    G.addVert(7,new int[]{6,8,9},"München");
-    G.addVert(8,new int[]{6,10,7},"Augsburg");
-    G.addVert(9,new int[]{7,10,11},"Freiburg");
-    G.addVert(10,new int[]{6,8,9,11},"Stuttgart");
-    G.addVert(11,new int[]{10,9,12,13},"Mannheim");
-    G.addVert(12,new int[]{6,11,13,5},"Frankfurt");
-    G.addVert(13,new int[]{11,12,14},"Wiesbaden");
-    G.addVert(14,new int[]{12,13,16,15},"Düsseldorf");
-    G.addVert(15,new int[]{14,16},"Köln");
-    G.addVert(16,new int[]{14,15,17,18},"Essen");
-    G.addVert(17,new int[]{18,16},"Gelsenkirchen");
-    G.addVert(18,new int[]{16,17,19,20},"Dortmund");
-    G.addVert(19,new int[]{18,20,21},"Hannover");
+  void LoadDefaultGraph3(){
+    G.addVert(1,new int[]{},"Berlin","Size:3000km,Height:100m,Population:30.000");
+    G.addVert(2,new int[]{1}, "Leipzig");
+    G.addVert(3,new int[]{2}, "Jena");
+    G.addVert(4,new int[]{3,2},"Weimar");
+    G.addVert(5,new int[]{4},"Erfurt");
+    G.addVert(6,new int[]{3},"Nürnberg");
+    G.addVert(7,new int[]{6},"München");
+    G.addVert(8,new int[]{6,7},"Augsburg");
+    G.addVert(9,new int[]{7},"Freiburg");
+    G.addVert(10,new int[]{6,8,9},"Stuttgart");
+    G.addVert(11,new int[]{10,9},"Mannheim");
+    G.addVert(12,new int[]{6,11,5},"Frankfurt");
+    G.addVert(13,new int[]{11,12},"Wiesbaden");
+    G.addVert(14,new int[]{12,13},"Düsseldorf");
+    G.addVert(15,new int[]{14},"Köln");
+    G.addVert(16,new int[]{14,15},"Essen");
+    G.addVert(17,new int[]{16},"Gelsenkirchen");
+    G.addVert(18,new int[]{16,17},"Dortmund");
+    G.addVert(19,new int[]{18},"Hannover");
     G.addVert(20,new int[]{18,19},"Bremen");
     G.addVert(21,new int[]{19,1},"Braunschweig");
   }
+  void LoadDefaultGraph2(){
+    G.addVert(1,new int[]{},"Knoten 1");
+    G.addVert(2,new int[]{1}, "Knoten 2");
+    G.addVert(3,new int[]{2}, "Knoten 3");
+    G.addVert(4,new int[]{3},"Knoten 4");
+    G.addVert(5,new int[]{4},"Knoten 5");
+    G.addVert(6,new int[]{5},"Knoten 6");
+    G.addVert(7,new int[]{6},"Knoten 7");
+    G.addVert(8,new int[]{7},"Knoten 8");
+    G.addVert(9,new int[]{8},"Knoten 9");
+    G.addVert(10,new int[]{9,1},"Knoten 10");
+    
+  }
   void LoadDefaultGraph1(){
-    G.addVert(1,new int[]{2,4,5,3},"Berlin","Size:3000km,Height:100m,Population:30.000");
-    G.addVert(2,new int[]{1,4,5}, "Leipzig");
+    G.addVert(1,new int[]{},"Berlin","Size:3000km,Height:100m,Population:30.000");
+    G.addVert(2,new int[]{1}, "Leipzig");
     G.addVert(3,new int[]{1}, "Jena");
-    G.addVert(4,new int[]{2,1,5,4},"Weimar");
-    G.addVert(5,new int[]{1,2,5,4},"Erfurt");
+    G.addVert(4,new int[]{2,1,4},"Weimar");
+    G.addVert(5,new int[]{1,2,4},"Erfurt");
   }
   
   public static void main(String[] args) {
@@ -307,13 +354,13 @@ public class GraphmakerWindow extends Application {
       String[] values=AddVerticeDialog.display();  
       if(!values[3].equals("")){
         
-      String[] con=values[3].split(",");
-      int[] connections=new int[con.length];
-      for (int i=0; i<connections.length;i++) {
-        connections[i]=Integer.parseInt(con[i]);
-      } // end of for
+        String[] con=values[3].split(",");
+        int[] connections=new int[con.length];
+        for (int i=0; i<connections.length;i++) {
+          connections[i]=Integer.parseInt(con[i]);
+        } // end of for
         G.addVert(Integer.parseInt(values[0]),connections,values[1],values[2]);
-        }
+      }
       else {
         G.addVert(Integer.parseInt(values[0]),new int[0],values[1],values[2]);
       } // end of if-else
@@ -332,12 +379,18 @@ public class GraphmakerWindow extends Application {
   
   public void bRefresh_Action(Event evt) {
     
-      G.forceDirectedGraphDrawing();
-   
-    G.forceDirectedGraphDrawing();
-    updateScene();
+//    G.forceDirectedGraphDrawing();
+//    updateScene();
+    
+    timeline.play();
     
   } // end of bRefresh_Action
+  
+  public void bStopp_Action(Event evt) {
+    
+    timeline.stop();
+    
+  } // end of bStopp_Action
   
   public void bLoadG1_Action(Event evt) {
     G = new Graph();
@@ -349,9 +402,18 @@ public class GraphmakerWindow extends Application {
   public void bLoadG2_Action(Event evt) {
     G = new Graph();
     LoadDefaultGraph2();
+    G.orderCircleWise();
     updateScene();
     
   } // end of bLoadG2_Action
+  
+  public void bLoadG3_Action(Event evt) {
+    G = new Graph();
+    LoadDefaultGraph3();
+    G.orderCircleWise();
+    updateScene();
+    
+  } // end of bLoadG3_Action
   
   
   
@@ -369,6 +431,10 @@ public class GraphmakerWindow extends Application {
     
   } // end of tbViewmode_Action
   
+  private void orderGraph(){
+    G.forceDirectedGraphDrawing();
+    updateScene();
+    }
   // Ende Methoden
 } // end of class GraphmakerWindow
     

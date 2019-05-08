@@ -27,6 +27,9 @@ public class Vector
   public Vector Mul(double m){
     return new Vector(x*m , y*m);
   }
+  public Vector Mul(Vector m){
+    return new Vector(x*m.x , y*m.y);
+  }
   public Vector Div(double m){
     return new Vector(x/m , y/m);
   }
@@ -55,5 +58,11 @@ public class Vector
     this.x = x;
   }
   
+  public boolean equals(Vector v){
+    if (this.x==v.x&&this.y==v.y) {
+      return true;
+    } // end of if
+    return false;
+  }
   
 }
