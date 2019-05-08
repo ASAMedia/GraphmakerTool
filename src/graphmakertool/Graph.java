@@ -12,6 +12,7 @@ import javafx.scene.input.MouseEvent;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
 import java.util.HashMap;
+import javafx.geometry.Point2D;
 /**
  *
  * Beschreibung
@@ -308,7 +309,58 @@ public class Graph {
     verticles.remove(v);
     
   }
+  
+  public void forceDirectedGraphDrawing(){
+    double relaxation=0.0378;
+    double accuracy=0.01;
+    
+    for (int count=0; count<=1;count++ ) {
+      Vector sumForce=new Vector();
+      Vector tmpForce=new Vector();
+      for (Vertice v:verticles) {
+        v.layoutVar=new Vector();
+      } // end of for
+      for (Vertice n:verticles) {
+        for (Vertice m:verticles) {
+          if (n!=m) {
+            sumForce=computeForce(n,m);
+            
+            for (Edge e : edges) {
+              Shape intersect1 = Vertice.intersect(n, e);
+              Shape intersect2 = Vertice.intersect(m, e);
+              if (intersect1.getBoundsInLocal().getWidth() != -1 && intersect2.getBoundsInLocal().getWidth() != -1) {
+                tmpForce = computeForce(n,m,e);
+                sumForce = sumForce.add(tmpForce);
+                break;
+              }
+              
+            }
+            n.layoutVar=n.layoutVar.sub(sumForce);
+            m.layoutVar=m.layoutVar.add(sumForce);
+          } // end of if
+        } // end of for
+        n.setCenterX(n.getCenterX()+relaxation*n.layoutVar.getX());
+      n.setCenterY(n.getCenterY()+relaxation*n.layoutVar.getY());
+      } // end of for
 
-  // Ende Methoden
+    } // end of for
+  }
+  
+  private Vector computeForce(Vertice s, Vertice t){
+    double repulsion=200;
+    Vector force=new Vector(t.getCenterX(),t.getCenterY()).sub(new Vector(s.getCenterX(),s.getCenterY()));
+    double d=Math.sqrt(Math.pow(force.getX(),2)+Math.pow(force.getY(),2));
+    force=(force.Mul(repulsion)).Div(Math.pow(d,3));
+    return force;
+  }
+  
+  private Vector computeForce(Vertice s, Vertice t,Edge e){
+    double attraction=200;
+    Vector force=new Vector(t.getCenterX(),t.getCenterY()).sub(new Vector(s.getCenterX(),s.getCenterY()));
+    double d=Math.sqrt(Math.pow(force.getX(),2)+Math.pow(force.getY(),2));
+    force=(force.Mul(attraction-d)).Div(d);
+    return force;
+  }
+      // Ende Methoden
 } // end of Graph
-
+      

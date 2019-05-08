@@ -49,6 +49,8 @@ public class GraphmakerWindow extends Application {
   private Slider slider1 = new Slider(1, 4, 1);
   Edge addEdge=new Edge();
   private Button bRefresh = new Button();
+  private Button bLoadG1 = new Button();
+  private Button bLoadG2 = new Button();
   private Pane pane1 = new Pane();
   private Boolean editMode=false;
   private Label lZoom = new Label();
@@ -78,8 +80,7 @@ public class GraphmakerWindow extends Application {
     (event) -> {tbEditmode_Action(event);} 
     );
     root.getChildren().add(tbEditmode);
-    // Ende Komponenten
-    // Anfang Komponenten
+    
     LoadDefaultGraph2();
     updateScene();  
     
@@ -93,16 +94,39 @@ public class GraphmakerWindow extends Application {
     Add.setText("Add");
     root.getChildren().add(Add);
     primaryStage.setResizable(false);
-    bRefresh.setLayoutX(218);
-    bRefresh.setLayoutY(506);
+    bRefresh.setLayoutX(518);
+    bRefresh.setLayoutY(706);
     bRefresh.setPrefHeight(25);
     bRefresh.setPrefWidth(75);
-    bRefresh.setVisible(false);
+    bRefresh.setVisible(true);
     bRefresh.setOnAction(
     (event) -> {bRefresh_Action(event);} 
     );
     bRefresh.setText("refresh");
     root.getChildren().add(bRefresh);
+    
+    bLoadG1.setLayoutX(118);
+    bLoadG1.setLayoutY(706);
+    bLoadG1.setPrefHeight(50);
+    bLoadG1.setPrefWidth(120);
+    bLoadG1.setVisible(true);
+    bLoadG1.setOnAction(
+    (event) -> {bLoadG1_Action(event);} 
+    );
+    bLoadG1.setText("Load Graph 1");
+    root.getChildren().add(bLoadG1);
+    
+    bLoadG2.setLayoutX(248);
+    bLoadG2.setLayoutY(706);
+    bLoadG2.setPrefHeight(50);
+    bLoadG2.setPrefWidth(120);
+    bLoadG2.setVisible(true);
+    bLoadG2.setOnAction(
+    (event) -> {bLoadG2_Action(event);} 
+    );
+    bLoadG2.setText("Load Graph 2");
+    root.getChildren().add(bLoadG2);
+    
     pane1.setLayoutX(0);
     pane1.setLayoutY(0);
     pane1.setPrefHeight(100);
@@ -241,7 +265,7 @@ public class GraphmakerWindow extends Application {
     
     
   }
-  void LoadDefaultGraph1(){
+  void LoadDefaultGraph2(){
     G.addVert(1,new int[]{2,21},"Berlin","Size:3000km,Height:100m,Population:30.000");
     G.addVert(2,new int[]{1,3,4}, "Leipzig");
     G.addVert(3,new int[]{2,4,6}, "Jena");
@@ -264,12 +288,12 @@ public class GraphmakerWindow extends Application {
     G.addVert(20,new int[]{18,19},"Bremen");
     G.addVert(21,new int[]{19,1},"Braunschweig");
   }
-  void LoadDefaultGraph2(){
-    G.addVert(1,new int[]{2,5},"Berlin","Size:3000km,Height:100m,Population:30.000");
-    G.addVert(2,new int[]{1,4}, "Leipzig");
-    G.addVert(3,new int[]{}, "Jena");
-    G.addVert(4,new int[]{2,5},"Weimar");
-    G.addVert(5,new int[]{1,4},"Erfurt");
+  void LoadDefaultGraph1(){
+    G.addVert(1,new int[]{2,4,5,3},"Berlin","Size:3000km,Height:100m,Population:30.000");
+    G.addVert(2,new int[]{1,4,5}, "Leipzig");
+    G.addVert(3,new int[]{1}, "Jena");
+    G.addVert(4,new int[]{2,1,5,4},"Weimar");
+    G.addVert(5,new int[]{1,2,5,4},"Erfurt");
   }
   
   public static void main(String[] args) {
@@ -307,9 +331,27 @@ public class GraphmakerWindow extends Application {
   } // end of Add_Action
   
   public void bRefresh_Action(Event evt) {
+    
+      G.forceDirectedGraphDrawing();
+   
+    G.forceDirectedGraphDrawing();
     updateScene();
     
   } // end of bRefresh_Action
+  
+  public void bLoadG1_Action(Event evt) {
+    G = new Graph();
+    LoadDefaultGraph1();
+    updateScene();
+    
+  } // end of bLoadG1_Action
+  
+  public void bLoadG2_Action(Event evt) {
+    G = new Graph();
+    LoadDefaultGraph2();
+    updateScene();
+    
+  } // end of bLoadG2_Action
   
   
   
