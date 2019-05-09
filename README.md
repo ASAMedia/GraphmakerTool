@@ -26,7 +26,7 @@ All additional data such as name, connections, number and attributes must be add
 <div>
   <img src="/images/addwindow.PNG" alt="Screenshot" title="Screenshot-2" width="50%" style="margin:5px"/>
   <p>By clicking the add button on the main window a popup window opens.<br> 
-  Through the given input fields a customized node can be added.<p><br>
+  Through the given input fields a customized node can be added.<p>
 </div>
   <h4>Note:</h4> The following input layout has to be used, else errors could occur!<br>
   <ul>
