@@ -5,7 +5,7 @@ import javafx.scene.input.MouseEvent;
 import javafx.geometry.Point2D;
 /**
  *
- * Beschreibung
+ * Graph vertex class
  *
  * @version 1.0 vom 01.05.2019
  * @author Axel Schorcht -119650
@@ -13,12 +13,12 @@ import javafx.geometry.Point2D;
 
 public class Vertice extends Circle {
   
-  // Anfang Attribute
+  // Beginn attributes
   String name="Default";
   int number;
   HashMap<String, String> attributes = new HashMap<String, String>();
-  Vector layoutVar=new Vector(0,0);
-  // Ende Attribute
+  Vector layoutVar=new Vector(0,0);   //imported for forcedirected drawing
+  // End attributes
   
   public Vertice(int number) {
     this.number=number;

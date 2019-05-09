@@ -1,4 +1,4 @@
-  package graphmakertool;
+package graphmakertool;
 import javafx.scene.shape.Line;
 /**
  *

@@ -1,6 +1,6 @@
 object GraphmakerWindow: TFXGuiForm
-  Left = 663
-  Top = 143
+  Left = 280
+  Top = -20
   BorderIcons = [biSystemMenu]
   Caption = 'GraphmakerWindow'
   ClientHeight = 845
@@ -196,5 +196,41 @@ object GraphmakerWindow: TFXGuiForm
     WrapText = False
     action = 'tbEditmode_Action'
     Selected = False
+  end
+  object Reset: TFXButton
+    Tag = 105
+    Left = 750
+    Top = 760
+    Width = 75
+    Height = 25
+    Hint = 'button1'
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -12
+    Font.Name = 'Dialog'
+    Font.Style = []
+    Foreground = clBlack
+    Background = clBtnFace
+    LayoutX = 750
+    LayoutY = 760
+    Disable = False
+    Cache = False
+    dragOver = ''
+    PrefHeight = 25
+    PrefWidth = 75
+    SnapToPixel = False
+    Alignment = CENTER
+    ContentDisplay = _CD_LEFT
+    EllipsisString = '...'
+    Underline = False
+    TextFill = 3355443
+    GraphicTextGap = 4
+    MnemonicParsing = False
+    Text = 'Reset'
+    TextAlignment = _TA_LEFT
+    WrapText = False
+    action = 'Reset_Action'
+    CancelButton = False
+    DefaultButton = False
   end
 end

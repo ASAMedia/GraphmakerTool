@@ -1,7 +1,7 @@
  package graphmakertool;
 /**
  *
- * Beschreibung
+ * Vector2D representing class
  *
  * @version 1.0 vom 01.05.2019
  * @author Axel Schorcht -119650
@@ -32,17 +32,6 @@ public class Vector
   }
   public Vector Div(double m){
     return new Vector(x/m , y/m);
-  }
-  public double Dot(Vector v){
-    return x*v.x + y*v.y;
-  }
-  public double Size(){
-    return  Math.sqrt(x*x + y*y);
-  }
-  
-  public Vector Unit(){
-    double s = Size();
-    return   new Vector(x/s , y/s);
   }
   
   public double getY(){
