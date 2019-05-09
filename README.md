@@ -54,15 +54,20 @@ To delete a node right click on it an select delete on the popup menu(View mode 
 <br><hr>
 <h3>Placement modi</h3>
  <table style="width:100%">
+ <tr>
+    <th><h4>Random placement</h4></th>
+    <th><h4>Circular placement</h4></th>
+    <th><h4>Force based placement</h4></th>
+  </tr>
   <tr>
     <th><img src="/images/randomplacement.PNG" alt="Screenshot" title="Screenshot-6" width="90%" style="margin:5px"/></th>
     <th><img src="/images/circularplacement.PNG" alt="Screenshot" title="Screenshot-7" width="90%" style="margin:5px"/></th>
     <th><img src="/images/forcebasedplacement.PNG" alt="Screenshot" title="Screenshot-8" width="90%" style="margin:5px"/></th>
   </tr>
   <tr>
-    <td>Random placement - all vertices get a random position, so that they do not overlap each other.</td>
-    <td>Circular placement - vertices get circular ordered around a center point.</td>
-    <td>Force based placement - vertex position gets calculated on the basis of attracting and repulsive forces between the vertices</td>
+    <td>All vertices get a random position, so that they do not overlap each other.</td>
+    <td>Vertices get circular ordered around a center point.</td>
+    <td>Vertex position gets calculated on the basis of attracting and repulsive forces between the vertices</td>
   </tr>
 </table>
 <br><hr>
