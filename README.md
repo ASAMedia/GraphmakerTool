@@ -13,12 +13,19 @@ Features:
   <li>Move nodes to customize graph</li>
   <li>Add additional information to nodes</li>
   <li>Viewmode/Editmode</li>
+  <li>3 default graphs with different drawing options</li>
 </ul>
-<br><hr>
+<br>
+The graph class contains all vertices and edges in separate dynamic lists. The vertices extend the circle and the edges the line class from javafx.
+This tactic preserves a fast and simple graphical output to the window pane.
+Edges and vertices which are bind together can be found by comparing the vertex location and the start/end location of the edge.
+Each vertex has a hashmap which contains additional information.
+All additional data such as name, connections, number and attributes must be added when adding a vertex to the graph.  
+<hr>
 <h3>Add node</h3>
 <div>
   <img src="/images/addwindow.PNG" alt="Screenshot" title="Screenshot-2" width="50%" style="margin:5px"/>
-  <p>By clicking the add button on the mainwindow a popup window opens.<br> 
+  <p>By clicking the add button on the main window a popup window opens.<br> 
   Through the given input fields a customized node can be added.<p><br>
 </div>
   <h4>Note:</h4> The following input layout has to be used, else errors could occur!<br>

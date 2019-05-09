@@ -1,12 +1,4 @@
-﻿[Files]
-File0=C:\Users\schor\source\repos\ASAMedia\graphmakertool\GraphmakerTool\src\graphmakertool\AddVerticeDialog.java
-File1=C:\Users\schor\source\repos\ASAMedia\graphmakertool\GraphmakerTool\src\graphmakertool\Edge.java
-File2=C:\Users\schor\source\repos\ASAMedia\graphmakertool\GraphmakerTool\src\graphmakertool\Graph.java
-File3=C:\Users\schor\source\repos\ASAMedia\graphmakertool\GraphmakerTool\src\graphmakertool\GraphmakerWindow.java
-File4=C:\Users\schor\source\repos\ASAMedia\graphmakertool\GraphmakerTool\src\graphmakertool\Vector.java
-File5=C:\Users\schor\source\repos\ASAMedia\graphmakertool\GraphmakerTool\src\graphmakertool\Vertice.java
-
-[Box:  - graphmakertool.AddVerticeDialog]
+﻿[Box:  - graphmakertool.AddVerticeDialog]
 X=683
 Y=295
 MinVis=0
@@ -68,7 +60,7 @@ FontName=Segoe UI
 
 [Diagram]
 comments=0
-OffsetX=234
+OffsetX=0
 OffsetY=0
 Visibility=0
 ShowParameter=4
@@ -87,4 +79,10 @@ V3=graphmakertool.Vertice#graphmakertool.Vector#AssociationDirected####0#0#0###0
 
 [Interactive]
 I0=
+
+[Window]
+Left=-8
+Top=-31
+Width=1305
+Height=560
 
