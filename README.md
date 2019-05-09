@@ -1,6 +1,6 @@
 # GraphmakerTool
 The GraphmakerTool is made for creating and manipulating graphs.
-<table style="width:100%;" border="0" cellspacing="0" cellpadding="0">
+<table style="width:100%; border: 1px solid transparent;">
   <tr>
     <td><img src="/images/mainwindow1.PNG" alt="Screenshot" title="Screenshot-1" width="80%" style="margin:5px"/></td>
     <td>Features:
