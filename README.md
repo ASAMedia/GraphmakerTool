@@ -52,13 +52,12 @@ To delete a node right click on it an select delete on the popup menu(View mode 
   </tr>
 </table> 
 <br><hr>
-<br><hr>
 <h3>Placement modi</h3>
  <table style="width:100%">
   <tr>
-    <th><img src="/images/randomplacement.PNG" alt="Screenshot" title="Screenshot-6" width="30%" style="margin:5px"/></th>
-    <th><img src="/images/circularplacement.PNG" alt="Screenshot" title="Screenshot-7" width="30%" style="margin:5px"/></th>
-    <th><img src="/images/forcebasedplacement.PNG" alt="Screenshot" title="Screenshot-8" width="30%" style="margin:5px"/></th>
+    <th><img src="/images/randomplacement.PNG" alt="Screenshot" title="Screenshot-6" width="90%" style="margin:5px"/></th>
+    <th><img src="/images/circularplacement.PNG" alt="Screenshot" title="Screenshot-7" width="90%" style="margin:5px"/></th>
+    <th><img src="/images/forcebasedplacement.PNG" alt="Screenshot" title="Screenshot-8" width="90%" style="margin:5px"/></th>
   </tr>
   <tr>
     <td>Random placement - all vertices get a random position, so that they do not overlap each other.</td>
@@ -66,6 +65,7 @@ To delete a node right click on it an select delete on the popup menu(View mode 
     <td>Force based placement - vertex position gets calculated on the basis of attracting and repulsive forces between the vertices</td>
   </tr>
 </table>
+<br><hr>
 <h3>UML Diagram</h3>
 <img src="/images/uml.PNG" alt="Screenshot" title="Screenshot-9" width="50%" style="margin:5px"/>
 <hr>
