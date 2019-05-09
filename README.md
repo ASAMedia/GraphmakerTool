@@ -1,5 +1,20 @@
 # GraphmakerTool
 The GraphmakerTool is made for creating and manipulating graphs.
+<table style="width:100%; border: none;">
+  <tr>
+    <th><img src="/images/mainwindow1.PNG" alt="Screenshot" title="Screenshot-1" width="50%" style="margin:5px"/></th>
+    <td>Features:
+<ul>
+  <li>Creating Graph</li>
+  <li>Adding nodes/edges</li>
+  <li>Deleting nodes/edges</li>
+  <li>Move nodes to customize graph</li>
+  <li>Add additional information to nodes</li>
+  <li>Viewmode/Editmode</li>
+  <li>3 default graphs with different drawing options</li>
+</ul></td>
+  </tr>
+</table> 
 <div>
   <img src="/images/mainwindow1.PNG" alt="Screenshot" title="Screenshot-1" width="50%" style="margin:5px"/>
 </div>
