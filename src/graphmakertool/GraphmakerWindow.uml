@@ -1,0 +1,90 @@
+﻿[Files]
+File0=C:\Users\schor\source\repos\ASAMedia\graphmakertool\GraphmakerTool\src\graphmakertool\AddVerticeDialog.java
+File1=C:\Users\schor\source\repos\ASAMedia\graphmakertool\GraphmakerTool\src\graphmakertool\Edge.java
+File2=C:\Users\schor\source\repos\ASAMedia\graphmakertool\GraphmakerTool\src\graphmakertool\Graph.java
+File3=C:\Users\schor\source\repos\ASAMedia\graphmakertool\GraphmakerTool\src\graphmakertool\GraphmakerWindow.java
+File4=C:\Users\schor\source\repos\ASAMedia\graphmakertool\GraphmakerTool\src\graphmakertool\Vector.java
+File5=C:\Users\schor\source\repos\ASAMedia\graphmakertool\GraphmakerTool\src\graphmakertool\Vertice.java
+
+[Box:  - graphmakertool.AddVerticeDialog]
+X=683
+Y=295
+MinVis=0
+ShowParameter=4
+SortOrder=0
+ShowIcons=1
+FontSize=10
+FontName=Segoe UI
+
+[Box:  - graphmakertool.Edge]
+X=440
+Y=317
+MinVis=0
+ShowParameter=4
+SortOrder=0
+ShowIcons=1
+FontSize=10
+FontName=Segoe UI
+
+[Box:  - graphmakertool.Graph]
+X=441
+Y=407
+MinVis=0
+ShowParameter=4
+SortOrder=0
+ShowIcons=1
+FontSize=10
+FontName=Segoe UI
+
+[Box:  - graphmakertool.GraphmakerWindow]
+X=67
+Y=6
+MinVis=0
+ShowParameter=4
+SortOrder=0
+ShowIcons=1
+FontSize=10
+FontName=Segoe UI
+
+[Box:  - graphmakertool.Vector]
+X=737
+Y=0
+MinVis=0
+ShowParameter=4
+SortOrder=0
+ShowIcons=1
+FontSize=10
+FontName=Segoe UI
+
+[Box:  - graphmakertool.Vertice]
+X=395
+Y=0
+MinVis=0
+ShowParameter=4
+SortOrder=0
+ShowIcons=1
+FontSize=10
+FontName=Segoe UI
+
+[Diagram]
+comments=0
+OffsetX=234
+OffsetY=0
+Visibility=0
+ShowParameter=4
+SortOrder=0
+ShowIcons=1
+ShowConnections=0
+Fontname=Segoe UI
+Fontsize=10
+ShowObjectDiagram=0
+
+[Connections]
+V0=graphmakertool.GraphmakerWindow#graphmakertool.Graph#AssociationDirected####0#0#0###0#0
+V1=graphmakertool.GraphmakerWindow#graphmakertool.Vertice#AssociationDirected####0#0#0###0#0
+V2=graphmakertool.GraphmakerWindow#graphmakertool.Edge#AssociationDirected####0#0#0###0#0
+V3=graphmakertool.Vertice#graphmakertool.Vector#AssociationDirected####0#0#0###0#0
+
+[Interactive]
+I0=
+

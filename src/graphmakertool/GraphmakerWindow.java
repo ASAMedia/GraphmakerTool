@@ -64,9 +64,9 @@ public class GraphmakerWindow extends Application {
   private Label lZoom = new Label();
   private ToggleButton tbViewmode = new ToggleButton();
   private ToggleButton tbEditmode = new ToggleButton();
-  Timeline timeline;
+  private Timeline timeline;
   
-  Edge addEdge=new Edge();
+  private Edge addEdge=new Edge();
   private Button bStart = new Button();
   private Button bStopp = new Button();
   private Button bLoadG2 = new Button();
@@ -75,21 +75,21 @@ public class GraphmakerWindow extends Application {
   private Text tLoadG1=new Text("Load Graph 1");
   private Button bLoadG1Random = new Button("Random");
   private Button bLoadG1Circle = new Button("Circle");
-  BorderPane bPG1 = new BorderPane(null,tLoadG1,bLoadG1Circle,null,bLoadG1Random);
+  private BorderPane bPG1 = new BorderPane(null,tLoadG1,bLoadG1Circle,null,bLoadG1Random);
   
   private Text tLoadG2=new Text("Load Graph 2");
   private Button bLoadG2Random = new Button("Random");
   private Button bLoadG2Circle = new Button("Circle");
-  BorderPane bPG2 = new BorderPane(null,tLoadG2,bLoadG2Circle,null,bLoadG2Random);
+  private BorderPane bPG2 = new BorderPane(null,tLoadG2,bLoadG2Circle,null,bLoadG2Random);
   
   private Text tLoadG3=new Text("Load Graph 3");
   private Button bLoadG3Random = new Button("Random");
   private Button bLoadG3Circle = new Button("Circle");
-  BorderPane bPG3 = new BorderPane(null,tLoadG3,bLoadG3Circle,null,bLoadG3Random);
+  private BorderPane bPG3 = new BorderPane(null,tLoadG3,bLoadG3Circle,null,bLoadG3Random);
   
-  BorderPane bPG = new BorderPane(bPG2,null,bPG3,null,bPG1);
+  private BorderPane bPG = new BorderPane(bPG2,null,bPG3,null,bPG1);
   
-  BorderPane bPmain = new BorderPane(new Rectangle(10,740,Color.TRANSPARENT),null,null,bPG,null);
+  private BorderPane bPmain = new BorderPane(new Rectangle(10,740,Color.TRANSPARENT),null,null,bPG,null);
   
   // Ende Attribute
   

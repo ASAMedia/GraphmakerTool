@@ -44,6 +44,9 @@ To delete a node right click on it an select delete on the popup menu(View mode 
     <td>To delete a edge switch to edit mode and right click on the two vertices you wish to connect.</td>
   </tr>
 </table> 
+<br><hr>
+<h3>UML Diagram</h3>
+<img src="/images/uml.PNG" alt="Screenshot" title="Screenshot-6" width="50%" style="margin:5px"/>
 <hr>
 
 <i>

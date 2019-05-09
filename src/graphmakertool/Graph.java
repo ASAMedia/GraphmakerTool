@@ -20,8 +20,8 @@ import java.util.HashMap;
 public class Graph {
   
   // Beginn attributes
-  ArrayList<Vertice> verticles = new ArrayList<Vertice>();  //Dynamic list for vertices
-  ArrayList<Edge> edges = new ArrayList<Edge>();            //Dynamic list for edges
+  public ArrayList<Vertice> verticles = new ArrayList<Vertice>();  //Dynamic list for vertices
+  public ArrayList<Edge> edges = new ArrayList<Edge>();            //Dynamic list for edges
   // End attributes
   
   public Graph() {                              //Constructer
