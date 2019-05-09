@@ -1,9 +1,9 @@
 # GraphmakerTool
 The GraphmakerTool is made for creating and manipulating graphs.
-<table style="width:100%; border: none;">
+<table style="width:100%;">
   <tr>
-    <th><img src="/images/mainwindow1.PNG" alt="Screenshot" title="Screenshot-1" width="50%" style="margin:5px"/></th>
-    <td>Features:
+    <td style="border: none;"><img src="/images/mainwindow1.PNG" alt="Screenshot" title="Screenshot-1" width="100%" style="margin:5px"/></td>
+    <td style="border: none;">Features:
 <ul>
   <li>Creating Graph</li>
   <li>Adding nodes/edges</li>
