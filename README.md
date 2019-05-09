@@ -15,20 +15,7 @@ The GraphmakerTool is made for creating and manipulating graphs.
 </ul></td>
   </tr>
 </table> 
-<div>
-  <img src="/images/mainwindow1.PNG" alt="Screenshot" title="Screenshot-1" width="50%" style="margin:5px"/>
-</div>
-Features:
-<ul>
-  <li>Creating Graph</li>
-  <li>Adding nodes/edges</li>
-  <li>Deleting nodes/edges</li>
-  <li>Move nodes to customize graph</li>
-  <li>Add additional information to nodes</li>
-  <li>Viewmode/Editmode</li>
-  <li>3 default graphs with different drawing options</li>
-</ul>
-<br>
+accecaa|bb
 The graph class contains all vertices and edges in separate dynamic lists. The vertices extend the circle and the edges the line class from javafx.
 This tactic preserves a fast and simple graphical output to the window pane.
 Edges and vertices which are bind together can be found by comparing the vertex location and the start/end location of the edge.
