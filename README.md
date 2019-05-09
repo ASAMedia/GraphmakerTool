@@ -1,6 +1,6 @@
 # GraphmakerTool
 The GraphmakerTool is made for creating and manipulating graphs.
-<table style="width:100%; border: 1px solid transparent;">
+<table style="width:100%; border: none;">
   <tr>
     <td><img src="/images/mainwindow1.PNG" alt="Screenshot" title="Screenshot-1" width="80%" style="margin:5px"/></td>
     <td>Features:
@@ -15,7 +15,6 @@ The GraphmakerTool is made for creating and manipulating graphs.
 </ul></td>
   </tr>
 </table> 
-accecaa|bb
 The graph class contains all vertices and edges in separate dynamic lists. The vertices extend the circle and the edges the line class from javafx.
 This tactic preserves a fast and simple graphical output to the window pane.
 Edges and vertices which are bind together can be found by comparing the vertex location and the start/end location of the edge.
