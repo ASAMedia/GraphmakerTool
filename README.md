@@ -3,8 +3,6 @@ The GraphmakerTool is made for creating and manipulating graphs.
 <div>
   <img src="/images/mainwindow1.PNG" alt="Screenshot" title="Screenshot-1" width="50%" style="margin:5px"/>
 </div>
-<br>
-<hr>
 Features:
 <ul>
   <li>Creating Graph</li>
